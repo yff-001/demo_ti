@@ -1,0 +1,10 @@
+"./empty_non_sysconfig.o"
+"./startup_mspm0l130x_gcc.o"
+"./ti_msp_dl_config.o"
+-Wl,-T"../mspm0l1306.lds"
+"C:/ti/mspm0_sdk_1_30_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a"
+-l:driverlib.a
+-lgcc
+-lc
+-lm
+-lnosys
