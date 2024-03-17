@@ -1,7 +1,39 @@
 ## Example Summary
 
-Empty project using DriverLib without SysConfig.
-This example shows a basic empty project using DriverLib with just main file.
+This example shows how a minimal working example looks like without Sysconfig. ti_msp_dl_config.c contains only 6 function calls to initialize the system.
+- DL_GPIO_reset(GPIOA)
+- DL_GPIO_enablePower(GPIOA)
+- delay_cycles(POWER_STARTUP_DELAY)
+- DL_SYSCTL_setSYSOSCFreq(DL_SYSCTL_SYSOSC_FREQ_BASE)
+- DL_SYSCTL_setMCLKDivider(DL_SYSCTL_MCLK_DIVIDER_DISABLE)
+- DL_SYSCTL_setBORThreshold(DL_SYSCTL_BOR_THRESHOLD_LEVEL_0)
+
+The last three are grouped in a system control function call.
+
+## Git
+
+To add this project to a git repository, initialize under the root of directory
+
+`git init`
+
+`git add .`
+
+`git commit -m "first commit"`
+
+`git branch -M main`
+
+`git remote add origin https://github.com/yff-001/demo_ti.git`
+
+`git push -u origin main`
+
+After making changes to files,
+
+`git add.` or `git add -all`
+
+`git commit -m "update"`
+
+`git push`
+
 
 ## Peripherals & Pin Assignments
 
