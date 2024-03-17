@@ -12,7 +12,9 @@ The last three are grouped in a system control function call.
 
 ## Git
 
-To add this project to a git repository, initialize under the root of directory
+Create a new repository on Github.
+
+To add this project to the git repository, initialize under the root of directory
 
 `git init`
 
