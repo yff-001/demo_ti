@@ -10,7 +10,7 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
-"./empty_non_sysconfig.o" \
+"./main.o" \
 "./startup_mspm0l130x_gcc.o" \
 "./ti_msp_dl_config.o" \
 -Wl,-T"../mspm0l1306.lds" \
@@ -148,8 +148,8 @@ empty_non_sysconfig_LP_MSPM0L1306_nortos_gcc.out: $(OBJS) $(LDS_SRCS) $(GEN_CMDS
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)
-	-$(RM) "empty_non_sysconfig.o" "startup_mspm0l130x_gcc.o" "ti_msp_dl_config.o" 
-	-$(RM) "empty_non_sysconfig.d" "startup_mspm0l130x_gcc.d" "ti_msp_dl_config.d" 
+	-$(RM) "main.o" "startup_mspm0l130x_gcc.o" "ti_msp_dl_config.o" 
+	-$(RM) "main.d" "startup_mspm0l130x_gcc.d" "ti_msp_dl_config.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

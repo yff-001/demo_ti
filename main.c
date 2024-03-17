@@ -32,10 +32,55 @@
 
 #include "ti_msp_dl_config.h"
 
+
 int main(void)
 {
     SYSCFG_DL_init();
+    // soft_timer_init();
+
+    /*
+     * Initializes the SysTick period to 500.00 ms,
+     * enables the interrupt, and starts the SysTick Timer
+     */
+    // DL_SYSTICK_config(16000000);
+
+    NVIC_EnableIRQ(TIMG0_INT_IRQn);
+    // DL_TimerG_startCounter(TIMG0);
+
+    /* set PA0 as output, clear pin */
+    DL_GPIO_initDigitalOutput(IOMUX_PINCM1);
+    DL_GPIO_clearPins(GPIOA, DL_GPIO_PIN_0);
+    DL_GPIO_enableOutput(GPIOA, DL_GPIO_PIN_0);
 
     while (1) {
+        __WFI();
     }
 }
+
+// void SysTick_Handler(void)
+// {
+//     DL_GPIO_togglePins(GPIOA, DL_GPIO_PIN_0);
+// }
+
+/*  this function gets its name from the paramter passed to NVIC_EnableIRQ()
+    mystery sovled!
+    beware of mistach!
+*/
+void TIMG0_IRQHandler(void)
+{
+    DL_GPIO_togglePins(GPIOA, DL_GPIO_PIN_0);
+    // static uint32_t count = TIMER_500_MILLISECONDS_TICKS;
+    // switch (DL_TimerG_getPendingInterrupt(TIMG0)) {
+    //     case DL_TIMER_IIDX_ZERO:
+    //         DL_GPIO_togglePins(GPIOA, DL_GPIO_PIN_0);
+    //         break;
+    //     default:
+    //         break;
+    // }
+}
+
+/*
+    DL_GPIO_clearPins(gpioPort, gpioPins);
+    DL_GPIO_setPins(gpioPort, gpioPins);
+    DL_GPIO_togglePins(gpioPort, gpioPins);
+*/

@@ -1,4 +1,4 @@
-"./empty_non_sysconfig.o"
+"./main.o"
 "./startup_mspm0l130x_gcc.o"
 "./ti_msp_dl_config.o"
 -Wl,-T"../mspm0l1306.lds"

@@ -73,6 +73,15 @@ extern "C" {
 
 #define CPUCLK_FREQ                                                     32000000
 
+/* Defines for TIMER_0 */
+#define TIMER_0_INST                                                     (TIMG0)
+#define TIMER_0_INST_IRQHandler                                 TIMG0_IRQHandler
+#define TIMER_0_INST_INT_IRQN                                   (TIMG0_INT_IRQn)
+#define TIMER_0_INST_LOAD_VALUE                                           (16U)
+
+void SYSCFG_DL_TIMER_0_init(void);
+
+
 /* clang-format on */
 
 void SYSCFG_DL_init(void);
