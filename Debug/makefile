@@ -13,6 +13,8 @@ ORDERED_OBJS += \
 "./main.o" \
 "./startup_mspm0l130x_gcc.o" \
 "./ti_msp_dl_config.o" \
+"./driver/gpio.o" \
+"./driver/timer.o" \
 -Wl,-T"../mspm0l1306.lds" \
 $(GEN_CMDS__FLAG) \
 "C:/ti/mspm0_sdk_1_30_00_03/source/ti/driverlib/lib/gcc/m0p/mspm0l11xx_l13xx/driverlib.a" \
@@ -30,7 +32,9 @@ RMDIR := RMDIR /S/Q
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include subdir_vars.mk
+-include driver/subdir_vars.mk
 -include subdir_rules.mk
+-include driver/subdir_rules.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -148,8 +152,8 @@ empty_non_sysconfig_LP_MSPM0L1306_nortos_gcc.out: $(OBJS) $(LDS_SRCS) $(GEN_CMDS
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.o" "startup_mspm0l130x_gcc.o" "ti_msp_dl_config.o" 
-	-$(RM) "main.d" "startup_mspm0l130x_gcc.d" "ti_msp_dl_config.d" 
+	-$(RM) "main.o" "startup_mspm0l130x_gcc.o" "ti_msp_dl_config.o" "driver\gpio.o" "driver\timer.o" 
+	-$(RM) "main.d" "startup_mspm0l130x_gcc.d" "ti_msp_dl_config.d" "driver\gpio.d" "driver\timer.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
